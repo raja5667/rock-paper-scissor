@@ -1,0 +1,296 @@
+/* Resetting defaults for margin, padding, and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: black;
+    background-image: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 1px, transparent 1px, transparent 3px);
+    background-size: 100% 4px;
+}
+
+/* Main page styling */
+.main-page {
+    height: 100vh;
+    background: linear-gradient(45deg, #4E8BFF, #FC5C8C);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.volume {
+    position: absolute;
+    /* Absolute positioning relative to the parent container */
+    top: 20px;
+    /* Distance from the top of the container */
+    right: 20px;
+    /* Distance from the right side */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #ebff4d, #772ff2);
+    /* Gaming gradient */
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255, 60, 110, 0.8), 0 0 30px rgba(91, 0, 247, 0.8);
+    /* Glowing effect */
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    z-index: 1000;
+    /* Ensure it's above other elements */
+}
+
+.volume img {
+    width: 40%;
+    height: 40%;
+    filter: drop-shadow(0 0 5px white);
+}
+
+.volume:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 60, 110, 1), 0 0 50px rgba(91, 0, 247, 1);
+}
+
+.volume:active {
+    transform: scale(0.9);
+    background: linear-gradient(45deg, #5b00f7, #ff3c6e);
+}
+
+.volume::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    opacity: 0.8;
+    pointer-events: none;
+    transition: transform 0.3s ease;
+}
+
+.volume:hover::before {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+}
+
+.home {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background-color: #00c6ff;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.home img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+/* Cover styles (container for content) */
+.cover {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+/* Scoreboard styles */
+.scoreboard {
+    position: absolute;
+    top: 120px;
+    display: flex;
+    gap: 20px;
+    font-size: 20px;
+    color: #fff;
+    z-index: 2;
+}
+
+/* Score styling for P2 with a unique border */
+.P2::before {
+    content: '';
+    border: 2px solid rgb(0, 255, 68);
+    margin-right: 20px;
+}
+
+/* List styling for game options */
+.list {
+    margin-top: 90px;
+    list-style: none;
+    display: flex;
+    gap: 80px;
+}
+
+/* Game container styling */
+.game1,
+.game2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Card styling (images inside) */
+.card1,
+.card2 {
+    background-size: cover;
+    padding: 20px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Card images styling */
+.card1 img,
+.card2 img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Option buttons styling */
+.option {
+    margin: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+/* Box styling for game choices */
+.box {
+    background: linear-gradient(135deg, #adcc2e, #133b0e);
+    padding: 5px;
+    height: 80px;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    border-radius: 8px;
+    transition: box-shadow 0.3s;
+    /* Glowing effect */
+}
+
+.box:hover {
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.8), 0 0 20px rgba(0, 255, 204, 0.5);
+}
+
+/* Box glowing effect */
+.box::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    /* Extend slightly beyond the box */
+    z-index: -1;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #ff007f, #00c6ff, #ff007f);
+    animation: pulse 2s infinite;
+    /* Add a glowing pulse effect */
+}
+
+/* SVG inside box */
+.box img {
+    max-width: 70%;
+    /* Slight padding for a cleaner look */
+    max-height: 70%;
+    object-fit: contain;
+}
+
+/* Pulse animation for glowing effect */
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+}
+
+/* Media queries for responsiveness */
+
+/* For tablets and smaller screens */
+@media (max-width: 768px) {
+    .main-page {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .list {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .card1,
+    .card2 {
+        width: 250px;
+        height: 250px;
+    }
+
+    .box {
+        height: 60px;
+        width: 60px;
+    }
+}
+
+/* For mobile screens */
+@media (max-width: 480px) {
+    .list {
+        gap: 20px;
+    }
+
+    .card1,
+    .card2 {
+        width: 200px;
+        height: 200px;
+    }
+
+    .box {
+        height: 50px;
+        width: 50px;
+    }
+
+    .scoreboard {
+        font-size: 16px;
+        gap: 10px;
+    }
+}
